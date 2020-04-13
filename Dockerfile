@@ -10,6 +10,7 @@ USER node
 ENV BUILD_EXPIRE=${BUILD_EXPIRE}
 ENV BUILD_DOMAIN=${BUILD_DOMAIN}
 
+RUN yarn config set network-timeout 600000 -g
 RUN  yarn install && yarn build
 
 FROM quay.io/openware/wio:0.1.0 AS production
